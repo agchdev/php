@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'system-ui';
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(30, 30, 30);
+            height: 100vh;
+            flex-direction: column;
+        }
+        form{
+            background-color: rgb(45, 45, 45);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 3rem;
+            box-shadow: 0 0 150px rgba(255, 255, 255, 0.648);
+            border-radius: 3rem;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bolder;
+        }
+        form > label{
+            margin-bottom: 1rem;
+        }
+        .inputDato{
+            background-color: white;
+            border: 3px solid rgb(127, 127, 127);
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .inputBtn{
+            background-color: white;
+            padding: .5rem 1rem;
+            border-radius: 1rem;
+            font-weight: bolder;
+            text-align: center;
+        }
+        
+        h1{
+            font-size: 3rem;
+            font-weight: bolder;
+            color: white;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>EJERCICIO 7</h1>
+    <form action="ejercicio7.php" method="post">
+        <label for="num1">Introduce un numero:<br></label>
+        <input class="inputDato" type="number" name="num1" placeholder="Primer numero" required>
+        <input class="inputBtn" type="submit" value="Enviar">
+    </form>
+</body>
+</html>

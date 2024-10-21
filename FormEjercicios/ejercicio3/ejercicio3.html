@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            font-family: 'system-ui';
+            background-color: rgb(3, 3, 12);
+            color: white;
+            overflow: hidden;
+        }
+        h1{
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+        body > div{
+            display: flex;
+            gap: 3rem;
+        }
+        body > div > form{
+            display: flex;
+        }
+        form>div>article{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            background-color: rgb(3, 3, 12);
+            box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.116);
+            padding: 3rem;
+            border-radius: 2rem;
+        }
+        form>div{
+            display: flex;
+            gap: 3rem;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        input{
+            margin: auto;
+        }
+        h2{
+            margin: auto;
+            font-size: 2rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid white;
+            margin-bottom: 1rem;
+        }
+        article > div{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+        }
+        label{
+            margin: 1rem 0 .7rem;
+            font-weight: bolder;
+        }
+        input{
+            background-color: rgba(255, 255, 255, 0.116);
+            border: 1px solid white;
+            padding: 1rem 1.5rem;
+            border-radius: 3rem;
+            color: white;
+        }
+        .enviar{
+            margin-top: 2rem;
+            background-color: rgb(15, 0, 83);
+            font-weight: bolder;
+            border: 0;
+            cursor: pointer;
+            transition: all .5s ease;
+        }
+        .enviar:hover{
+            box-shadow: 0 0 20px rgb(15, 0, 83);
+        }
+    </style>
+</head>
+<body>
+    <h1>IMC</h1>
+    <div>
+        <form action="ejercicio3.php" method="POST" enctype="multipart/form-data">
+            <div>
+                <article>
+                    <h2>Hombre</h2>
+                    <div>
+                        <label for="nomH">NOMBRE:</label>
+                        <input type="text" name="nomC" placeholder="introduce tu nombre">
+                    </div>
+                    <div>
+                        <label for="pesoH">PESO (kg):</label>
+                        <input type="number" name="peso" placeholder="Introduce tu peso">
+                    </div>
+                    <div>
+                        <label for="alturaH">ALTURA (m):</label>
+                        <input type="number" name="altura" placeholder="Introduce tu altura en metros">
+                    </div>
+                </article>
+                <article>
+                    <h2>Mujer</h2>
+                    <div>
+                        <label for="nomM">NOMBRE:</label>
+                        <input type="text" name="nomC" placeholder="introduce tu nombre">
+                    </div>
+                    <div>
+                        <label for="pesoM">PESO (kg):</label>
+                        <input type="number" name="peso" placeholder="Introduce tu peso">
+                    </div>
+                    <div>
+                        <label for="alturaM">ALTURA (m):</label>
+                        <input type="number" name="altura" placeholder="Introduce tu altura en metros">
+                    </div>
+                </article>
+                <article>
+                    <h2>Niño</h2>
+                    <div>
+                        <label for="nomN">NOMBRE:</label>
+                        <input type="text" name="nomC" placeholder="introduce tu nombre">
+                    </div>
+                    <div>   
+                        <label for="pesoN">PESO (kg):</label>
+                        <input type="number" name="peso" placeholder="Introduce tu peso">
+                    </div>
+                    <div>
+                        <label for="alturaN">ALTURA (m):</label>
+                        <input type="number" name="altura" placeholder="Introduce tu altura en metros">
+                    </div>
+                </article>
+            </div>
+            <input class="enviar" type="submit" value="Enviar archivo">
+        </form>
+    </div>
+    
+    
+</body>
+</html>

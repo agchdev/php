@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="form18.php" method="POST" enctype="multipart/form-data">
+        <p>Elige color de fondo:</p>
+        <input type="radio" name="fondo" value="red"><label for="fondo">Rojo</label>
+        <input type="radio" name="fondo" value="green"><label for="fondo">Verde</label>
+        <input type="radio" name="fondo" value="blue"><label for="fondo">Azul</label>
+        <input type="radio" name="fondo" value="orange"><label for="fondo">Naranja</label>
+
+        <p>Elige color de la letra:</p>
+        <input type="radio" name="letra" value="purple"><label for="letra">Morado</label>
+        <input type="radio" name="letra" value="pink"><label for="letra">Rosa</label>
+        <input type="radio" name="letra" value="brown"><label for="letra">Marrón</label>
+
+        <p>Elige tipo de letra:</p>
+        <input type="radio" name="tipoL" value="Arial"><label for="tipoL">Arial</label>
+        <input type="radio" name="tipoL" value="Times New Roman"><label for="tipoL">Times New Roman</label>
+        <input type="radio" name="tipoL" value="Courier New"><label for="tipoL">Courier New</label>
+
+        <p>Elige una imagen:</p>
+        <input type="radio" name="img" value="./img/gato1.jpg"><label for="img"><img src="./img/gato1.jpg" width="100px"></label>
+        <input type="radio" name="img" value="./img/gato2.jpg"><label for="img"><img src="./img/gato2.jpg" width="100px"></label>
+        <input type="radio" name="img" value="./img/gato3.jpg"><label for="img"><img src="./img/gato3.jpg" width="100px"></label>
+
+        <input type="submit" value="Enviar datos">
+    </form>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'system-ui';
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(30, 30, 30);
+            height: 100vh;
+        }
+        form{
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        form > div{
+            display: flex;
+            gap: 2rem;
+        }
+        form > div{
+            background-color: rgb(45, 45, 45);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 3rem;
+            box-shadow: 0 0 150px rgba(255, 255, 255, 0.648);
+            border-radius: 3rem;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bolder;
+        }
+        select{
+            padding: .5rem 1rem;
+            border-radius: 1rem;
+            font-size: 1rem;
+            font-weight: bolder;
+        }
+        option{
+            color: white;
+            background-color: rgb(32, 32, 32);
+        }
+        form > label{
+            margin-bottom: 1rem;
+        }
+        .inputDato{
+            background-color: white;
+            border: 3px solid #7f7f7f;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .inputBtn{
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            font-weight: bolder;
+            text-align: center;
+            cursor: pointer;
+        }
+        h1{
+            font-size: 3rem;
+            font-weight: bolder;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form action="ejercicio10.php" method="post">
+        <h1>EJERCICIO 10</h1>
+        <div>
+            <select name="tabla" id="multiplicar">
+                <option value="0">Selecciona un numero:</option>
+                <option value="1">Tabla del 1</option>
+                <option value="2">Tabla del 2</option>
+                <option value="3">Tabla del 3</option>
+                <option value="4">Tabla del 4</option>
+                <option value="5">Tabla del 5</option>
+                <option value="6">Tabla del 6</option>
+                <option value="7">Tabla del 7</option>
+                <option value="8">Tabla del 8</option>
+                <option value="9">Tabla del 9</option>
+                <option value="10">Tabla del 10</option>
+            </select>
+            <select name="color" id="multiplicar">
+                <option value="0">Selecciona un color:</option>
+                <option value="ff9090">Rojo</option>
+                <option value="81ff81">Verde</option>
+                <option value="8de8ff">Azul</option>
+                <option value="ffff89">Amarillo</option>
+            </select>
+        </div>
+        <input class="inputBtn" type="submit" value="Enviar">
+    </form>
+</body>
+</html>
