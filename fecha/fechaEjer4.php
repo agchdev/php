@@ -8,14 +8,22 @@
 <body>
 <?php
     if (isset($_POST["submit"])) {
-        $fecha = strtotime($_POST["fech"]);
-        $formFecha=date("l", $fecha);
-        echo "<br>".$formFecha;
+        $fechaEntrega = strtotime($_POST["fechEntrega"]);
+        $fechaEntregado = strtotime($_POST["fechEntregado"]);
+        if($fechaEntrega < $fechaEntregado){
+            $diasRetraso = ($fechaEntregado - $fechaEntrega)/86400;
+            $pago = $diasRetraso*3;
+            echo "Llevas ".$diasRetraso." días de retraso. Tienes que pagar ".$pago."€";
+        }else{
+            echo "Todo correcto!!";
+        }
     }else{
     ?>
-    <form action="fechaEjer1.php" method="post" enctype="multipart/form-data">
-        <label for="fech">Introduce la fecha de devolución: </label>
-        <input type="date" name="fech" id="">
+    <form action="fechaEjer4.php" method="post" enctype="multipart/form-data">
+        <label for="fechEntrega">Introduce la fecha de devolución: </label>
+        <input type="date" name="fechEntrega">
+        <label for="fechEntregado">Introduce la fecha que lo entregas: </label>
+        <input type="date" name="fechEntregado">
         <input type="submit" value="enviar" name="submit">
     </form>
     <?php
