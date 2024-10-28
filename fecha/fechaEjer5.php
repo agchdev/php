@@ -9,13 +9,21 @@
 <?php
     if (isset($_POST["submit"])) {
         $fecha = strtotime($_POST["fech"]);
-        $formFecha=date("l", $fecha);
-        echo "<br>".$formFecha;
+        $nm = $_POST["mesNext"];
+        $pm = $_POST["mesPrev"];
+        echo "<br>".$nm;
     }else{
     ?>
-    <form action="fechaEjer1.php" method="post" enctype="multipart/form-data">
+    <form action="fechaEjer5.php" method="post" enctype="multipart/form-data">
         <label for="fech">Introduce tu cumpleaños: </label>
         <input type="date" name="fech" id="">
+        <br>
+        <input type="checkbox" name="mesNext">
+        <label for="mesNext">ver mes siguiente</label>
+        <br>
+        <input type="checkbox" name="mesPrev">
+        <label for="mesNext">ver mes anterior</label>
+        <br>
         <input type="submit" value="enviar" name="submit">
     </form>
     <?php
