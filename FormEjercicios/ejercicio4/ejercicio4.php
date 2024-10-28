@@ -12,7 +12,7 @@
         }elseif(($_FILES["img"]["size"]/(2**20)) >= 2){
             header("Location:ejercicio4Form.php?err=2");
         }elseif(empty($_POST["num"])){
-            header("Location:ejercicio4Form.php?err=3");
+            // header("Location:ejercicio4Form.php?err=3"); 
         }else{
             $ruta = "./imgs/";
 
