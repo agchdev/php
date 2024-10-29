@@ -8,8 +8,8 @@
 <body>
 <?php
     if (isset($_POST["submit"])) {
-        $fecha1 = strtotime($_POST["fech1"]);
-        $fecha2 = strtotime($_POST["fech2"]);
+        $fecha1 = strtotime($_POST["fech1"]); //Fecha a segundos
+        $fecha2 = strtotime($_POST["fech2"]); //Fecha a segundos
         $fechaFinal = $fecha1 - $fecha2;
         if($fechaFinal<0) $fechaFinal*=-1;
         $fechaFinal/=86400;
