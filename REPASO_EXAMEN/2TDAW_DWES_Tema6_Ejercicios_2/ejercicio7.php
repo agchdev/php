@@ -10,7 +10,7 @@
         if (isset($_POST["enviar"])) {
             if (empty($_POST["usu"])) {
                 header("Location:ejercicio7.php?err=1");
-            }elseif (empty($_POST["file"])) {
+            }elseif (empty($_FILES["file"]["tmp_name"])) {
                 header("Location:ejercicio7.php?err=2");
             }
 
@@ -29,18 +29,18 @@
             }
 
             $origen = $_FILES["file"]["tmp_name"];
-            $nombreArchivo = $_POST["file"]["name"];
+            $nombreArchivo = $_FILES["file"]["name"];
             $destino = $rutaUsu.$nombreArchivo;
 
             move_uploaded_file($origen, $destino);
 
-            echo $nombreArchivo = $_POST["file"]["name"];
-            // header("Location:ejercicio7.php?archivo=$nombreArchivo/$nomUsu");
+            echo $nombreArchivo = $_FILES["file"]["name"];
+            header("Location:ejercicio7.php?archivo=$nombreArchivo/$nomUsu");
         }else{
     ?>
     <form action="ejercicio7.php" method="post" enctype="multipart/form-data">
     <?php
-        if (isset($_GET["nombre"])) {
+        if (isset($_GET["archivo"])) {
             $Nomarchivo = explode("/",$_GET["archivo"]);
 
             echo "<p style=\"color:green;\">el archivo ".$Nomarchivo[0].", del usuario
