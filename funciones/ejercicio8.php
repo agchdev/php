@@ -6,9 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+        if (isset($_POST["enviar"])) {
+            $fecha = $_POST["date"];
+        }else{
+    ?>
     <form action="ejercicio8.php" method="post" enctype="multipart/form-data">
         <input type="date" name="fecha">
         <input type="submit" name="enviar" value="enviar">
     </form>
+    <?php
+        }
+    ?>
 </body>
 </html>
