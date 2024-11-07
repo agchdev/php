@@ -9,6 +9,7 @@
     <?php
         if (isset($_POST["enviar"])) {
             $fecha = $_POST["date"];
+            
         }else{
     ?>
     <form action="ejercicio8.php" method="post" enctype="multipart/form-data">
