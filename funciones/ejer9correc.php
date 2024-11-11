@@ -27,6 +27,14 @@
             return '<td style="background-color: '.$color.'">'.$numDia.'</td>';
         }
 
+        function is_fest( int $dia, int $mes, int $anio){
+            $festivos = ["1-1", "6-1", "28-2", "1-5", "15-8", "12-10", "1-11", "6-12", "25-12"];
+
+            $diaMes = "$dia-$mes";
+            
+            array_search($diaMes, $festivos);
+        }
+
         function impr_mes( int $mes, int $anio ){
             $diaSem = get_ini_mes($mes, $anio);
 
