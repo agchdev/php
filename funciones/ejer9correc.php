@@ -27,10 +27,17 @@
             $diaSem = get_ini_mes($mes, $anio);
 
             $totIter = get_dias_mes($mes, $año) + $diaSem - 1;
+            $dia = 1;
+
             echo "<table><tr><th>L</th><th>M</th><th>X</th><th>J</th><th>V</th><th>S</th><th>D</th></tr>";
 
             for($i = 1; $i <= $totIter; $i++){
-                
+                if($i%7 == 1) echo "<tr>";
+
+                if( $i >= $diaSem ) echo "<td>".$dias++."</td>";
+                else echo "<td></td>";
+
+                if($i%7 == 0) echo "</tr>";
             }
         }
     ?>
