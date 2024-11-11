@@ -23,23 +23,36 @@
             return $diaTot;
         }
 
+        function impr_dias( int $numDia, string $color){
+            return '<td style="background-color: '.$color.'">'.$numDia.'</td>';
+        }
+
         function impr_mes( int $mes, int $anio ){
             $diaSem = get_ini_mes($mes, $anio);
 
-            $totIter = get_dias_mes($mes, $año) + $diaSem - 1;
-            $dia = 1;
+            $totIter = get_dias_mes($mes, $anio) + $diaSem - 1;
+            $dias = 1;
 
             echo "<table><tr><th>L</th><th>M</th><th>X</th><th>J</th><th>V</th><th>S</th><th>D</th></tr>";
 
             for($i = 1; $i <= $totIter; $i++){
                 if($i%7 == 1) echo "<tr>";
 
-                if( $i >= $diaSem ) echo "<td>".$dias++."</td>";
+                if( $i >= $diaSem ) {
+                    if( $i%7 >= 1 && $i%7 <= 5) echo impr_dias($dias++, "green");
+                    else echo impr_dias($dias++, "red");
+                }
+                
                 else echo "<td></td>";
 
                 if($i%7 == 0) echo "</tr>";
             }
+
+            echo "</table>";
+
+            
         }
+        impr_mes(11, 2024);
     ?>
 </body>
 </html>
