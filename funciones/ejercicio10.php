@@ -10,6 +10,7 @@
 
     function boletin($arr){
         $media = 0;
+        $cont = 0;
 
         foreach ($arr as $key => $value) {
             echo $key.": ".$value."<br>";
@@ -19,6 +20,8 @@
             }
         }
         $media /= $cont;
+
+        echo "Media: $media<br><br>";
     }
 
     if (isset($_POST["enviar"])) {
