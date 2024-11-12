@@ -15,8 +15,10 @@
             echo $key.": ".$value."<br>";
             if(preg_match("'^Nota'", $key)){
                 $media += $value;
+                $cont++;
             }
         }
+        $media /= $cont;
     }
 
     if (isset($_POST["enviar"])) {
