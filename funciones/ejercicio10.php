@@ -7,16 +7,33 @@
 </head>
 <body>
     <?php
+
+    function boletin($arr){
+        $media = 0;
+
+        foreach ($arr as $key => $value) {
+            echo $key.": ".$value."<br>";
+            if(preg_match("'^Nota'", $key)){
+                $media += $value;
+            }
+        }
+    }
+
     if (isset($_POST["enviar"])) {
         $i = 1;
         $arr = array();
 
         foreach ($_POST as $key => $value) {
-            if(preg_match("'^$i'", $key)){
-                $key = strstr($key, "$i")
-                $arr = [$nKey => $value];
+            if(preg_match("'^".$i."'", $key)){
+                $nKey = substr($key, 1);
+                $arr[$nKey] = $value;
             }else{
-                
+                boletin($arr);
+                $arr = array();
+
+                $i++;
+                $nKey = substr($key, 1);
+                $arr[$nKey] = $value;
             }
         }
     }else{
@@ -30,7 +47,7 @@
                 echo '<input type="text" name="'.$i.'Apellidos">';
 
                 for ($j=1; $j <= 3; $j++) { 
-                    echo '<label for="'.$i.'Nota">Nota '.$j.'</label>';
+                    echo '<label for="'.$j.'Nota">Nota'.$j.'</label>';
                     echo '<input type="number" name="'.$j.'Nota'.$j.'">';
                 }
                 echo "<br>";
