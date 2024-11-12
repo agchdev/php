@@ -47,8 +47,8 @@
                 echo '<input type="text" name="'.$i.'Apellidos">';
 
                 for ($j=1; $j <= 3; $j++) { 
-                    echo '<label for="'.$j.'Nota">Nota'.$j.'</label>';
-                    echo '<input type="number" name="'.$j.'Nota'.$j.'">';
+                    echo '<label for="'.$i.'Nota'.$j.'">Nota'.$j.'</label>';
+                    echo '<input type="number" name="'.$i.'Nota'.$j.'">';
                 }
                 echo "<br>";
             }
