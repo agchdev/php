@@ -20,7 +20,7 @@
                 public function __construct($s="", $b="", $ri="",$an=0,$al=0){
                     $this->src = $s;
                     $this->border = $b;
-                    $this->ruta_imagen = $ri;
+                    $this->ruta_imagen = "./images/".$ri;
                     $this->ancho = $an;
                     $this->alto = $al;
                 }
@@ -39,7 +39,7 @@
             //LLAMO A LA FUNCION
             compImg();
             //CREO LA CLASE
-            $img = new Imagen($_FILES["img"]["name"], $_POST["border"], $_POST["img"], $_POST["ancho"], $_POST["alto"]);
+            $img = new Imagen($_POST["img"], $_POST["border"], $_POST["img"], $_POST["ancho"], $_POST["alto"]);
             //POR DEFECTO SE LLAMARA A LA RUTA TOSTRING
             echo $img;
         }else{
