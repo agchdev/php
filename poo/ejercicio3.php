@@ -44,19 +44,56 @@
             echo $img;
         }else{
     ?>
+    <form id="chulo" action="ejercicio3.php" name="aux" method="post" enctype="multipart/form-data">
+        <select class="dir" name="dir">
+            <option value="d">Escoge una opcion</option>
+            <?php
+                $url = "./";
+                $ficheros1  = scandir($url);
+                $cont = 0;
+                foreach ($ficheros1 as $key) {
+                    $aux = explode(".", $key);
+                    if($aux[1] == "" && $cont > 2) {?> <option value="<?php echo $key ?>" <?php if($_POST["dir"] == $key) echo "selected" ?>><?php echo $key ?></option>;
+                    <?php
+                    }
+                    $cont++;
+                }
+            ?>
+        </select>
+        <input type="submit" name="hey" value="hey" style="display: none">
+    </form>
     <form action="ejercicio3.php" method="post" enctype="multipart/form-data">
         <?php
+        if(isset($_POST["hey"])){
+            $url = "./".$_POST["dir"]."/";
+            echo "<p>$url</p>";
+            $cont = 0;
+            $ficheros1  = scandir($url);
+            foreach ($ficheros1 as $key) {
+                if($cont >= 2)echo "<option value=\"".$key."\">".$key."</option>";
+                $cont++;
+            }
+        }
         if(isset($_GET["err"])){
             if($_GET["err"] == 1) echo "<p style=\"color: red;\">Introduce una imagen!</p>";
         }
         ?>
+        
         <select name="img">
             <?php
-                $url = "./images/";
-                $ficheros1  = scandir($url);
-                foreach ($ficheros1 as $key) {
-                    echo "<option value=\"".$key."\">".$key."</option>";
+                if(isset($_POST["dir"])){
+                    $url = "./".$_POST["dir"]."/";
+                    echo "<p>$url</p>";
+                    $cont = 0;
+                    $ficheros1  = scandir($url);
+                    foreach ($ficheros1 as $key) {
+                        if($cont >= 2)echo "<option value=\"".$key."\">".$key."</option>";
+                        $cont++;
+                    }
+                }else{
+                    echo "<option value=\"\"></option>";
                 }
+                
             ?>
         </select>
         
@@ -71,5 +108,17 @@
     <?php
         }
     ?>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const dir = document.querySelector(".dir");
+            const form = document.querySelector("#chulo");
+            console.log(form);
+            dir.addEventListener("change", (e) => {
+                const clase = e.target.value;
+                form.submit();  
+            })
+        })
+    </script>
 </body>
 </html>
