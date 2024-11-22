@@ -10,42 +10,42 @@
 // index.php
 
 // Incluir el archivo donde están las clases
-include 'animal.php';
+include 'clases.php';
 
 // Verificar si se han enviado los datos desde el formulario
-if (isset($_POST["enviar_perro"])) {
-    $nombre_perro = $_POST["nombre_perro"];
-    $color_perro = $_POST["color_perro"];
-    $año_perro = $_POST["año_perro"];
-    $raza_perro = $_POST["raza_perro"];
-    $sexo_perro = $_POST["sexo_perro"];
+    if (isset($_POST["enviar_perro"])) {
+        $nombre_perro = $_POST["nombre_perro"];
+        $color_perro = $_POST["color_perro"];
+        $año_perro = $_POST["año_perro"];
+        $raza_perro = $_POST["raza_perro"];
+        $sexo_perro = $_POST["sexo_perro"];
 
-    $perro = new Perro($nombre_perro, $color_perro, $año_perro, $raza_perro, $sexo_perro);
+        $perro = new Perro($nombre_perro, $color_perro, $año_perro, $raza_perro, $sexo_perro);
 
-    if ($_POST['accion_perro'] == 'ladrar') {
-        $perro->ladrar();
-    } elseif ($_POST['accion_perro'] == 'dormir') {
-        $perro->dormir();
-    }
-   
-} else if(isset($_POST["enviar_delfin"])) {
-    $nombre_delfin = $_POST["nombre_perro"];
-    $color_delfin = $_POST["color_delfin"];
-    $año_delfin = $_POST["año_delfin"];
-    $longitud_delfin = $_POST["longitud_delfin"];
+        if ($_POST['accion_perro'] == 'ladrar') {
+            $perro->ladrar();
+        } elseif ($_POST['accion_perro'] == 'dormir') {
+            $perro->dormir();
+        }
+    
+    } else if(isset($_POST["enviar_delfin"])) {
+        $nombre_delfin = $_POST["nombre_perro"];
+        $color_delfin = $_POST["color_delfin"];
+        $año_delfin = $_POST["año_delfin"];
+        $longitud_delfin = $_POST["longitud_delfin"];
 
-    $delfin = new Delfin($nombre_delfin, $color_delfin, $año_delfin, $longitud_delfin);
+        $delfin = new Delfin($nombre_delfin, $color_delfin, $año_delfin, $longitud_delfin);
 
-    if ($_POST['accion_perro'] == 'ladrar') {
-        $perro->ladrar();
-    } elseif ($_POST['accion_perro'] == 'dormir') {
-        $perro->dormir();
-    }
-} else{
+        if ($_POST['accion_perro'] == 'ladrar') {
+            $perro->ladrar();
+        } elseif ($_POST['accion_perro'] == 'dormir') {
+            $perro->dormir();
+        }
+    } else{
 ?>
 <!-- Formulario para crear un Perro y un Delfín -->
 <h1>Formulario de Animales</h1>
-<form action="index.php" method="POST">
+<form action="ejercicio4.php" method="POST">
     <h2>Datos del Perro</h2>
     <label for="nombre_perro">Introduce el nombre del perro:</label>
     <input type="text" name="nombre_perro" required><br>
@@ -65,7 +65,7 @@ if (isset($_POST["enviar_perro"])) {
     <input type="submit" name="enviar_perro" value="enviar_perro">
 </form>
 <br><br>
-<form action="index.php" method="POST">
+<form action="ejercicio4.php" method="POST">
     <h2>Datos del Delfín</h2>
     <label for="nombre_delfin">Introduce el nombre del delfin:</label>
     <input type="text" name="nombre_delfin" required><br>
