@@ -31,5 +31,39 @@
             return $str;
         }
     }
+    class perro extends animal
+    {
+        public $raza;
+        public $sexo;
+
+        public function __construct ($n="", $c="", $fn="2000-01-01", $r, $sx){
+            parent::__construct($n="", $c="", $fn="2000-01-01");
+            $this->raza = $n;
+            $this->sexo = $c;
+        }
+
+        public function ladrar(){
+            echo "<p>".$this->nombre." dice Guau</p>";
+        }
+        public function dormir(){
+            echo "<p>".$this->nombre." se ha dormido</p>";
+        }
+    }
+    class delfin extends animal
+    {
+        public $longitud;
+
+        public function __construct ($n="", $c="", $fn="2000-01-01", $l){
+            parent::__construct($n="", $c="", $fn="2000-01-01");
+            $this->longitud = $l;
+        }
+
+        public function saltar(){
+            echo "<p>".$this->nombre." está saltando por los aires</p>";
+        }
+        public function comer(){
+            echo "<p>".$this->nombre." tiene hambre</p>";
+        }
+    }
     
 ?>
