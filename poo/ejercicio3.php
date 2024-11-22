@@ -113,7 +113,6 @@
         document.addEventListener("DOMContentLoaded", () => {
             const dir = document.querySelector(".dir");
             const form = document.querySelector("#chulo");
-            console.log(form);
             dir.addEventListener("change", (e) => {
                 const clase = e.target.value;
                 form.submit();  
