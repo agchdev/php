@@ -27,7 +27,7 @@
             return $edad;
         }
         public function __toString(){
-            $str = "Me llamo ".$this->nombre." de color ".$this->color." y tiene ".$this->calcularEdad()." años";
+            $str = "Me llamo ".$this->nombre." de color ".$this->color." y tengo ".$this->calcularEdad()." años";
             return $str;
         }
     }
@@ -56,6 +56,11 @@
             echo "<p>".$this->nombre." se ha dormido</p>";
         }
 
+        public function __toString(){
+            $str = "Me llamo ".$this->nombre." de color ".$this->color.", tengo ".$this->calcularEdad()." años, de raza ".$this->raza." y sexo "$this->sexo;
+            return $str;
+        }
+
     }
     class delfin extends animal
     {
@@ -66,11 +71,20 @@
             $this->longitud = $l;
         }
 
+        public set_longitud($l){
+            $this->longitud = $l;
+        }
+
         public function saltar(){
             echo "<p>".$this->nombre." está saltando por los aires</p>";
         }
         public function comer(){
             echo "<p>".$this->nombre." tiene hambre</p>";
+        }
+
+        public function __toString(){
+            $str = "Me llamo ".$this->nombre." de color ".$this->color.", tengo ".$this->calcularEdad()." años y longitud "$this->longitud;
+            return $str;
         }
     }
     
