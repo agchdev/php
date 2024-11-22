@@ -31,7 +31,7 @@
             return $str;
         }
     }
-    class perro extends animal
+    class Perro extends animal
     {
         public $raza;
         public $sexo;
@@ -62,7 +62,7 @@
         }
 
     }
-    class delfin extends animal
+    class Delfin extends animal
     {
         public $longitud;
 
