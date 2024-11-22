@@ -42,12 +42,20 @@
             $this->sexo = $c;
         }
 
+        public set_raza($r){
+            $this->raza = $r;
+        }
+        public set_sexo($s){
+            $this->sexo = $s;
+        }
+
         public function ladrar(){
             echo "<p>".$this->nombre." dice Guau</p>";
         }
         public function dormir(){
             echo "<p>".$this->nombre." se ha dormido</p>";
         }
+
     }
     class delfin extends animal
     {
