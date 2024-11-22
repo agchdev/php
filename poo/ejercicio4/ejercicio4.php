@@ -20,7 +20,7 @@ include 'clases.php';
         $raza_perro = $_POST["raza_perro"];
         $sexo_perro = $_POST["sexo_perro"];
 
-        $perro = new Perro($nombre_perro, $color_perro, $año_perro, $raza_perro, $sexo_perro);
+        $perro = new Perro($raza_perro, $sexo_perro, $nombre_perro, $color_perro, $año_perro);
 
         if ($_POST['accion_perro'] == 'ladrar') {
             $perro->ladrar();
@@ -34,7 +34,7 @@ include 'clases.php';
         $año_delfin = $_POST["año_delfin"];
         $longitud_delfin = $_POST["longitud_delfin"];
 
-        $delfin = new Delfin($nombre_delfin, $color_delfin, $año_delfin, $longitud_delfin);
+        $delfin = new Delfin($longitud_delfin, $nombre_delfin, $color_delfin, $año_delfin);
 
         if ($_POST['accion_perro'] == 'ladrar') {
             $perro->ladrar();
