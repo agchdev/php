@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    include 'herencia.php';
+    require_once 'herencia.php';
     class Articulo{
         private $nombre;
         private $precio;

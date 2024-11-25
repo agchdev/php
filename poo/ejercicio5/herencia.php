@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo donde están las clases
-include 'class.articulo.php';
+require_once 'class.articulo.php';
 
  final class ArticuloRebajado extends Articulo{
     private $rebaja;
