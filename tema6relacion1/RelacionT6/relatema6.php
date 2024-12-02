@@ -18,7 +18,7 @@
         //     echo "$num x $i = ".$num*$i."<br>";
         // }
 
-    Ejercicio 3
+    
         $nums=$_POST["num1"];
         $aux=(int)$nums[0];
         echo "<table>";
