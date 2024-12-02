@@ -39,6 +39,41 @@
 
                 $cons->close(); 
             }
+            
+            public function crearUsuario(){
+                try {
+                    // Consulta parametrizada para evitar inyecciones SQL
+                    $query = "INSERT INTO cliente (nif, nombre, edad, usuario, pass) VALUES (?, ?, ?, ?, ?)";
+                    $stmt = $this->bd->prepare($query);
+        
+                    if (!$stmt) {
+                        throw new Exception("Error al preparar la consulta: " . $this->bd->error);
+                    }
+        
+                    // Vincula los parámetros
+                    $stmt->bind_param(
+                        "ssiss",  // Tipos de datos: string, string, int, string, string
+                        $this->nif,
+                        $this->nombre,
+                        $this->edad,
+                        $this->usuario,
+                        $this->pass
+                    );
+        
+                    // Ejecuta la consulta
+                    if (!$stmt->execute()) {
+                        throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+                    }
+        
+                    echo "Usuario creado exitosamente.";
+        
+                    // Cierra el statement
+                    $stmt->close();
+                } catch (Exception $e) {
+                    // Manejo de errores
+                    echo "Error: " . $e->getMessage();
+                }
+            }
 
 
             public function __toString(){
