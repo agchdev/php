@@ -20,7 +20,7 @@
 
         function tamanio(){
             $size = $_FILES["file"]["size"]/(2**20);
-            return $size
+            return $size;
         }
 
         function existCarpeta(){
