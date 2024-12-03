@@ -28,13 +28,21 @@
                     $db=new mysqli('localhost','root','','tienda');
                     $db->set_charset("utf8");
 
-                    $cli=new Producto($db);
-                    $cli->crearProducto();
+                    $cli=new cliente($db);
+                    $cli->get_select();
                 ?>
-                <option value=""></option>
             </select>
-            <input type="number" step="0.01" name="precio" placeholder="Precio del prodcuto...">
-            <br>
+            <select name="producto">
+                <?php
+                    $db=new mysqli('localhost','root','','tienda');
+                    $db->set_charset("utf8");
+
+                    $cli=new producto($db);
+                    $cli->get_select();
+                ?>
+            </select>
+            <input type="date" name="fecha">
+            <input type="number" step="0.01" name="cantidad">
             <input type="submit" name="enviar" value="enviar">
         </form>
     <?php

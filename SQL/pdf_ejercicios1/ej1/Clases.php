@@ -39,6 +39,18 @@
 
                 $cons->close(); 
             }
+
+            public function get_select(){
+                $sent="SELECT nif, usuario FROM cliente;";
+
+                $cons=$this->bd->prepare($sent);
+                $cons->bind_result($this->nif,$this->usuario);
+                $cons->execute();
+
+                while($cons->fetch()) echo "<option value=\"".$this->__toString_dni()."\">".$this->__toString_select()."</option>";
+
+                $cons->close(); 
+            }
             
             public function crearUsuario(){
                 try {
@@ -77,7 +89,15 @@
 
 
             public function __toString(){
-                $str = " <br>NIF:".$this->nif."<br>Nombre:".$this->nombre."<br>Edad:".$this->edad."<br>Usuario:".$this->usuario."<br>";
+                $str = $this->nif."<br>Nombre:".$this->nombre."<br>Edad:".$this->edad."<br>Usuario:".$this->usuario."<br>";
+                return $str;
+            }
+            public function __toString_select(){
+                $str = $this->nif." - ".$this->usuario;
+                return $str;
+            }
+            public function __toString_dni(){
+                $str = $this->nif;
                 return $str;
             }
 
@@ -147,6 +167,18 @@
                 $this->precio=$p;
             }
 
+            public function get_select(){
+                $sent="SELECT cod, descripcion FROM producto;";
+
+                $cons=$this->bd->prepare($sent);
+                $cons->bind_result($this->cod,$this->descripcion);
+                $cons->execute();
+
+                while($cons->fetch()) echo "<option value=\"".$this->__toString_cod()."\">".$this->__toString_select()."</option>";
+
+                $cons->close(); 
+            }
+
             public function crearProducto(){
                 try {
                     // Consulta parametrizada para evitar inyecciones SQL
@@ -177,6 +209,15 @@
                     // Manejo de errores
                     echo "Error: " . $e->getMessage();
                 }
+            }
+
+            public function __toString_select(){
+                $str = $this->cod." - ".$this->descripcion;
+                return $str;
+            }
+            public function __toString_cod(){
+                $str = $this->cod;
+                return $str;
             }
         }
         
