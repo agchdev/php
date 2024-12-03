@@ -18,9 +18,17 @@
             $db=new mysqli('localhost','root','','tienda');
             $db->set_charset("utf8");
 
+            $pro=new producto($db);
+            $array = [];
 
-            $pro=new venta($db, $_POST["cliente"], $_POST["producto"], $_POST["fecha"], $_POST["cantidad"]);
-            $pro->crearVenta();
+            $maxProd = $pro->getMaxProd();
+            
+            for ($i=0; $i < 10; $i++) { 
+                # code...
+            }
+
+            
+
         }else{
     ?>
         <form action="Ej6.php" method="post" enctype="multipart/form-data">

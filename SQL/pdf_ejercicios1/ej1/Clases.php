@@ -213,6 +213,13 @@
                 $cons->close(); 
             }
 
+            public function getMaxProd(){
+                $sent="SELECT cod, descripcion FROM producto;";
+                $cons=$this->bd->prepare($sent);
+                $cons->bind_result($this->cod,$this->descripcion);
+                $cons->execute();
+            }
+
             public function get_checkbox(){
                 $sent="SELECT cod, descripcion FROM producto;";
 
