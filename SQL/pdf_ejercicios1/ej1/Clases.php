@@ -126,6 +126,40 @@
                 $this->cantidad=$cant;
                 $this->estado=$est;
             }
+
+            public function crearventa(){
+                try {
+                    // Consulta parametrizada para evitar inyecciones SQL
+                    $query = "INSERT INTO venta (cliente, producto, fecha, cantidad, estado) VALUES (?, ?, ?, ?, null)";
+                    $stmt = $this->bd->prepare($query);
+        
+                    if (!$stmt) {
+                        throw new Exception("Error al preparar la consulta: " . $this->bd->error);
+                    }
+        
+                    // Vincula los parámetros
+                    $stmt->bind_param(
+                        "sisi",  // Tipos de datos: string, string, int, string, string
+                        $this->cliente,
+                        $this->producto,
+                        $this->fecha,
+                        $this->cantidad
+                    );
+        
+                    // Ejecuta la consulta
+                    if (!$stmt->execute()) {
+                        throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+                    }
+        
+                    echo "Venta creada exitosamente.";
+        
+                    // Cierra el statement
+                    $stmt->close();
+                } catch (Exception $e) {
+                    // Manejo de errores
+                    echo "Error: " . $e->getMessage();
+                }
+            }
         
             public function get_datos(){
                 $sent="SELECT v.* FROM cliente c,venta v,producto p where v.cliente=c.nif AND v.producto=p.cod;";

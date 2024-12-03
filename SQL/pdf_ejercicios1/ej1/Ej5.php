@@ -18,11 +18,11 @@
             $db->set_charset("utf8");
 
 
-            $pro=new Producto($db, $_POST["descripcion"], $_POST["precio"]);
-            $pro->crearProducto();
+            $pro=new venta($db, $_POST["cliente"], $_POST["producto"], $_POST["fecha"], $_POST["cantidad"]);
+            $pro->crearVenta();
         }else{
     ?>
-        <form action="Ej4.php" method="post" enctype="multipart/form-data">
+        <form action="Ej5.php" method="post" enctype="multipart/form-data">
             <select name="cliente">
                 <?php
                     $db=new mysqli('localhost','root','','tienda');
