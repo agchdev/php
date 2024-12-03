@@ -36,7 +36,7 @@
         <input type="submit" name="enviar" value="enviar">
     </form>
     <?php
-    }
+        }
     ?>
 </body>
 </html>

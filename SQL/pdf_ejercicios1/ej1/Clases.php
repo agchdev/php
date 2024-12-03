@@ -136,6 +136,49 @@
 
         }
 
+        class producto{
+            private $bd;
+            private $descripcion;
+            private $precio;
+
+            public function __construct($db, string $d = "", float $p = 0){
+                $this->bd = $db;
+                $this->descripcion=$d;
+                $this->precio=$p;
+            }
+
+            public function crearProducto(){
+                try {
+                    // Consulta parametrizada para evitar inyecciones SQL
+                    $query = "INSERT INTO producto (descripcion, precio) VALUES (?, ?)";
+                    $stmt = $this->bd->prepare($query);
+        
+                    if (!$stmt) {
+                        throw new Exception("Error al preparar la consulta: " . $this->bd->error);
+                    }
+        
+                    // Vincula los parámetros
+                    $stmt->bind_param(
+                        "sd",  // Tipos de datos: string, string, int, string, string
+                        $this->descripcion,
+                        $this->precio
+                    );
+        
+                    // Ejecuta la consulta
+                    if (!$stmt->execute()) {
+                        throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+                    }
+        
+                    echo "Usuario creado exitosamente.";
+        
+                    // Cierra el statement
+                    $stmt->close();
+                } catch (Exception $e) {
+                    // Manejo de errores
+                    echo "Error: " . $e->getMessage();
+                }
+            }
+        }
         
     ?>
 </body>
