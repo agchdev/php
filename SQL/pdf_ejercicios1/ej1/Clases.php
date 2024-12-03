@@ -194,6 +194,7 @@
             private $bd;
             private $descripcion;
             private $precio;
+            private $cod;
 
             public function __construct($db, string $d = "", float $p = 0){
                 $this->bd = $db;
@@ -218,7 +219,8 @@
                 $cons=$this->bd->prepare($sent);
                 $cons->bind_result($this->cod);
                 $cons->execute();
-                while($cons->fetch()) echo "<p>".$cons->fetch()."</p>";
+                $cons->fetch(); // Obtiene el valor del resultado
+                return $this->cod;
                 $cons->close(); 
             }
 
@@ -229,11 +231,30 @@
                 $cons->bind_result($this->cod,$this->descripcion);
                 $cons->execute();
 
-                while($cons->fetch()) echo "<input type=\"checkbox\" value=\"".$this->__toString_cod()."\">".$this->__toString_select()."</input>";
+                while($cons->fetch()) echo "<input type=\"checkbox\" value=\"".$this->__toString_cod()."\" name=\"".$this->__toString_cod()."\">".$this->__toString_select()."</input>";
 
                 $cons->close(); 
             }
 
+            function muestraCheckBox($cod){
+                $sent="SELECT precio FROM producto WHERE cod = ".$cod.";";
+                $cons=$this->bd->prepare($sent);
+                $cons->bind_result($this->precio);
+                $cons->execute();
+                $cons->fetch(); // Obtiene el valor del resultado
+                return $this->precio;
+                $cons->close(); 
+            }
+
+            function muestraNombre($cod){
+                $sent="SELECT descripcion FROM producto WHERE cod = ".$cod.";";
+                $cons=$this->bd->prepare($sent);
+                $cons->bind_result($this->descripcion);
+                $cons->execute();
+                $cons->fetch(); // Obtiene el valor del resultado
+                return $this->descripcion;
+                $cons->close(); 
+            }
 
             public function crearProducto(){
                 try {

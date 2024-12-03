@@ -14,21 +14,23 @@
         // Por medio de sentencias preparadas, mostrar al usuario el precio de todos los
         // productos seleccionados.
         require_once "Clases.php";
+
         if(isset($_POST["enviar"])){
+            
             $db=new mysqli('localhost','root','','tienda');
             $db->set_charset("utf8");
 
             $pro=new producto($db);
-            $array = [];
 
             $maxProd = $pro->getMaxProd();
-            
-            for ($i=0; $i < 10; $i++) { 
-                # code...
+
+            for ($i=1; $i <= $maxProd; $i++) { 
+                if(isset($_POST[$i])){
+                    $precio = $pro->muestraCheckBox($_POST[$i]);
+                    $descripcion = $pro->muestraNombre($_POST[$i]);
+                    echo "<p>EL PRECIO DEL PRODUCTO ".$descripcion." ES ".$precio."</p>";
+                }
             }
-
-            
-
         }else{
     ?>
         <form action="Ej6.php" method="post" enctype="multipart/form-data">
