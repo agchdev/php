@@ -213,6 +213,19 @@
                 $cons->close(); 
             }
 
+            public function get_checkbox(){
+                $sent="SELECT cod, descripcion FROM producto;";
+
+                $cons=$this->bd->prepare($sent);
+                $cons->bind_result($this->cod,$this->descripcion);
+                $cons->execute();
+
+                while($cons->fetch()) echo "<input type=\"checkbox\" value=\"".$this->__toString_cod()."\">".$this->__toString_select()."</input>";
+
+                $cons->close(); 
+            }
+
+
             public function crearProducto(){
                 try {
                     // Consulta parametrizada para evitar inyecciones SQL
